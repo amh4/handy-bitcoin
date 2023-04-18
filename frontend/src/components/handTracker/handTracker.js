@@ -14,13 +14,13 @@ const modelParams = {
   fontSize: 17,
 };
 
-function HandTracker() {
+function HandTracker(props) {
   const [model, setModel] = useState(null);
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
-  const openTradeRef = useRef(false);
-  const closeTradeRef = useRef(false);
-  const tradeActiveRef = useRef(false);
+  const openTrade = useRef(false);
+  const closeTrade = useRef(false);
+  const tradeActive = useRef(false);
 
   useEffect(() => {
     handTrack.load(modelParams).then((lmodel) => {
@@ -34,18 +34,24 @@ function HandTracker() {
               if (predictions.length > 1) {
                 if (
                   predictions[1].label === "open" &&
-                  tradeActiveRef.current === false
+                  tradeActive.current === false
                 ) {
-                  openTradeRef.current = true;
-                  tradeActiveRef.current = true;
-                  console.log("trade open " + openTradeRef.current);
+                  openTrade.current = true;
+                  tradeActive.current = true;
+                  props.onOpenTrade && props.onOpenTrade(openTrade);
+                  props.onTradeActive && props.onTradeActive(tradeActive);
+                  console.log("trade open " + openTrade.current);
                 } else if (
                   predictions[1].label === "closed" &&
-                  tradeActiveRef.current === true
+                  tradeActive.current === true
                 ) {
-                  closeTradeRef.current = true;
-                  tradeActiveRef.current = false;
-                  console.log("trade closed " + closeTradeRef.current);
+                  openTrade.current = false;
+                  closeTrade.current = true;
+                  tradeActive.current = false;
+                  props.onOpenTrade && props.onOpenTrade(openTrade);
+                  props.onCloseTrade && props.onCloseTrade(closeTrade);
+                  props.onTradeActive && props.onTradeActive(tradeActive);
+                  console.log("trade closed " + closeTrade.current);
                 }
               }
 
