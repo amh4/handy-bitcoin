@@ -18,12 +18,11 @@ function HandTracker() {
   const [model, setModel] = useState(null);
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
-  let openTrade = false;
-  let tradeActive = false;
-  let closeTrade = false;
+  const openTradeRef = useRef(false);
+  const closeTradeRef = useRef(false);
+  const tradeActiveRef = useRef(false);
 
   useEffect(() => {
-    // Load the model and start detecting objects in the video.
     handTrack.load(modelParams).then((lmodel) => {
       setModel(lmodel);
       handTrack.startVideo(videoRef.current).then(function (status) {
@@ -33,17 +32,20 @@ function HandTracker() {
             lmodel.detect(videoRef.current).then((predictions) => {
               console.log("Predictions: ", predictions);
               if (predictions.length > 1) {
-                if (predictions[1].label === "open" && tradeActive === false) {
-                  openTrade = true;
-                  tradeActive = true;
-                  console.log("trade open " + openTrade);
+                if (
+                  predictions[1].label === "open" &&
+                  tradeActiveRef.current === false
+                ) {
+                  openTradeRef.current = true;
+                  tradeActiveRef.current = true;
+                  console.log("trade open " + openTradeRef.current);
                 } else if (
                   predictions[1].label === "closed" &&
-                  tradeActive === true
+                  tradeActiveRef.current === true
                 ) {
-                  closeTrade = true;
-                  tradeActive = false;
-                  console.log("trade closed " + closeTrade);
+                  closeTradeRef.current = true;
+                  tradeActiveRef.current = false;
+                  console.log("trade closed " + closeTradeRef.current);
                 }
               }
 
