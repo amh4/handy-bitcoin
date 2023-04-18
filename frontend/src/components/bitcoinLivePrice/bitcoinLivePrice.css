@@ -4,10 +4,10 @@
 }
 
 #bitcoin-logo {
-  height: 1em; /* set the height of the image to the same as the font-size of the text */
+  height: 30px; /* set the height of the image to the same as the font-size of the text */
   margin-right: 0.5em; /* add some spacing between the image and text */
 }
 
 #current-price {
-  font-size: 1rem; /* set the font-size of the text */
+  font-size: 30px; /* set the font-size of the text */
 }
