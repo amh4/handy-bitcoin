@@ -1,13 +1,16 @@
 #bitcoin-price-container {
-  display: flex; /* use flexbox to align img and p side-by-side */
-  align-items: center; /* vertically center them */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 1vh;
+  margin-top: 20px;
 }
 
 #bitcoin-logo {
-  height: 30px; /* set the height of the image to the same as the font-size of the text */
-  margin-right: 0.5em; /* add some spacing between the image and text */
+  height: 30px;
+  margin-right: 0.5em;
 }
 
 #current-price {
-  font-size: 30px; /* set the font-size of the text */
+  font-size: 30px;
 }
