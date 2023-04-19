@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import "./profitAndLoss.css";
 
 function ProfitAndLoss({ startingPrice, currentPrice }) {
   const [profitLoss, setProfitLoss] = useState(null);
