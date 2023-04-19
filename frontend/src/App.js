@@ -13,6 +13,8 @@ function App() {
   useEffect(() => {
     if (tradeActiveRef.current && startingPrice === null) {
       setStartingPrice(currentPrice);
+    } else if (tradeActiveRef.current === false && startingPrice != null) {
+      setStartingPrice(null);
     }
   }, [tradeActiveRef.current]);
 
