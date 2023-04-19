@@ -7,7 +7,7 @@ describe("ProfitAndLoss", () => {
   });
 
   it("loads the component and displays $0 when no trade is live", () => {
-    cy.mount(<ProfitAndLoss startingPrice={0} currentPrice={0} />);
+    cy.mount(<ProfitAndLoss startingPrice={null} currentPrice={0} />);
     cy.get("#profit-loss-container").should("have.text", "Profit/Loss: $0");
   });
 
