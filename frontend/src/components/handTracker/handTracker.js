@@ -18,8 +18,6 @@ function HandTracker(props) {
   const [model, setModel] = useState(null);
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
-  const openTrade = useRef(false);
-  const closeTrade = useRef(false);
   const tradeActive = useRef(false);
 
   useEffect(() => {
@@ -36,22 +34,18 @@ function HandTracker(props) {
                   predictions[1].label === "open" &&
                   tradeActive.current === false
                 ) {
-                  openTrade.current = true;
                   tradeActive.current = true;
-                  props.onOpenTrade && props.onOpenTrade(openTrade);
-                  props.onTradeActive && props.onTradeActive(tradeActive);
-                  console.log("trade open " + openTrade.current);
+                  props.onTradeActive &&
+                    props.onTradeActive(tradeActive.current);
+                  console.log("trade open " + tradeActive.current);
                 } else if (
                   predictions[1].label === "closed" &&
                   tradeActive.current === true
                 ) {
-                  openTrade.current = false;
-                  closeTrade.current = true;
                   tradeActive.current = false;
-                  props.onOpenTrade && props.onOpenTrade(openTrade);
-                  props.onCloseTrade && props.onCloseTrade(closeTrade);
-                  props.onTradeActive && props.onTradeActive(tradeActive);
-                  console.log("trade closed " + closeTrade.current);
+                  props.onTradeActive &&
+                    props.onTradeActive(tradeActive.current);
+                  console.log("trade closed " + tradeActive.current);
                 }
               }
 
