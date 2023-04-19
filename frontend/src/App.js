@@ -6,20 +6,15 @@ import BitcoinLivePrice from "./components/bitcoinLivePrice/bitcoinLivePrice";
 
 function App() {
   const [currentPrice, setCurrentPrice] = useState();
-  const openTradeRef = useRef(false);
-  const closeTradeRef = useRef(false);
   const tradeActiveRef = useRef(false);
 
-  console.log("App trade open: ", openTradeRef.current);
   console.log("App trade active: ", tradeActiveRef.current);
-  console.log("App trade closed: ", closeTradeRef.current);
+  console.log("Current Price in App: ", currentPrice);
 
   return (
     <div className="App">
       <UserTutorial />
       <HandTracker
-        onOpenTrade={(value) => (openTradeRef.current = value)}
-        onCloseTrade={(value) => (closeTradeRef.current = value)}
         onTradeActive={(value) => (tradeActiveRef.current = value)}
       />
 
