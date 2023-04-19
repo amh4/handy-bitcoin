@@ -14,16 +14,15 @@ const modelParams = {
   fontSize: 17,
 };
 
-function HandTracker() {
+function HandTracker(props) {
   const [model, setModel] = useState(null);
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
-  let openTrade = false;
-  let tradeActive = false;
-  let closeTrade = false;
+  const openTrade = useRef(false);
+  const closeTrade = useRef(false);
+  const tradeActive = useRef(false);
 
   useEffect(() => {
-    // Load the model and start detecting objects in the video.
     handTrack.load(modelParams).then((lmodel) => {
       setModel(lmodel);
       handTrack.startVideo(videoRef.current).then(function (status) {
@@ -33,17 +32,26 @@ function HandTracker() {
             lmodel.detect(videoRef.current).then((predictions) => {
               console.log("Predictions: ", predictions);
               if (predictions.length > 1) {
-                if (predictions[1].label === "open" && tradeActive === false) {
-                  openTrade = true;
-                  tradeActive = true;
-                  console.log("trade open " + openTrade);
+                if (
+                  predictions[1].label === "open" &&
+                  tradeActive.current === false
+                ) {
+                  openTrade.current = true;
+                  tradeActive.current = true;
+                  props.onOpenTrade && props.onOpenTrade(openTrade);
+                  props.onTradeActive && props.onTradeActive(tradeActive);
+                  console.log("trade open " + openTrade.current);
                 } else if (
                   predictions[1].label === "closed" &&
-                  tradeActive === true
+                  tradeActive.current === true
                 ) {
-                  closeTrade = true;
-                  tradeActive = false;
-                  console.log("trade closed " + closeTrade);
+                  openTrade.current = false;
+                  closeTrade.current = true;
+                  tradeActive.current = false;
+                  props.onOpenTrade && props.onOpenTrade(openTrade);
+                  props.onCloseTrade && props.onCloseTrade(closeTrade);
+                  props.onTradeActive && props.onTradeActive(tradeActive);
+                  console.log("trade closed " + closeTrade.current);
                 }
               }
 

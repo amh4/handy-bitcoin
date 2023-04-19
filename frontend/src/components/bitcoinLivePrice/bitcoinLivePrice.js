@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
+import { propTypes } from "react-bootstrap/esm/Image";
 import BitcoinLogo from "../images/Bitcoin.png";
 import "./bitcoinLivePrice.css";
 
-const BitcoinLivePrice = () => {
+const BitcoinLivePrice = (props) => {
   const [currentPrice, setCurrentPrice] = useState();
 
   useEffect(() => {
@@ -21,6 +22,7 @@ const BitcoinLivePrice = () => {
     <div id="bitcoin-price-container">
       <img id="bitcoin-logo" src={BitcoinLogo} />
       <p id="current-price">Live Price: {currentPrice}</p>
+      {props.onPriceUpdate && props.onPriceUpdate(currentPrice)}
     </div>
   );
 };
