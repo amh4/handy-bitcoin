@@ -10,12 +10,14 @@ function ProfitAndLoss({ startingPrice, currentPrice, onProfitLoss }) {
     } else {
       setProfitLoss(0);
     }
+    {
+      onProfitLoss(profitLoss * 10000);
+    }
   }, [startingPrice, currentPrice]);
 
   return (
     <div id="profit-loss-container">
-      <p>Profit/Loss: ${profitLoss?.toLocaleString() * 10000}</p>
-      {onProfitLoss(profitLoss)}
+      <p>Profit/Loss: ${profitLoss?.toLocaleString()}</p>
     </div>
   );
 }
