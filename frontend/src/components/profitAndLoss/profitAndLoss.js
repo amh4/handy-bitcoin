@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./profitAndLoss.css";
 
-function ProfitAndLoss({ startingPrice, currentPrice }) {
+function ProfitAndLoss({ startingPrice, currentPrice, onProfitLoss }) {
   const [profitLoss, setProfitLoss] = useState(null);
 
   useEffect(() => {
@@ -15,6 +15,7 @@ function ProfitAndLoss({ startingPrice, currentPrice }) {
   return (
     <div id="profit-loss-container">
       <p>Profit/Loss: ${profitLoss?.toLocaleString() * 10000}</p>
+      {onProfitLoss(profitLoss)}
     </div>
   );
 }
