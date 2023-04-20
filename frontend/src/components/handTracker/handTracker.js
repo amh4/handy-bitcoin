@@ -7,14 +7,14 @@ const modelParams = {
   imageScaleFactor: 1,
   maxNumBoxes: 20,
   iouThreshold: 0.2,
-  scoreThreshold: 0.6,
+  scoreThreshold: 0.8,
   modelType: "ssd320fpnlite",
   modelSize: "small",
   bboxLineWidth: "2",
   fontSize: 17,
 };
 
-function HandTracker(props) {
+const HandTracker = (props) => {
   const [model, setModel] = useState(null);
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
@@ -79,6 +79,6 @@ function HandTracker(props) {
       <canvas ref={canvasRef} width="500" height="400" />
     </div>
   );
-}
+};
 
 export default HandTracker;
