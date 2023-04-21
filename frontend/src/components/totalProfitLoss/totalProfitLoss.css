@@ -1,0 +1,16 @@
+#total-profit-loss-headline {
+  display: inline-block;
+  border: 2px solid #50a060;
+  border-radius: 15px;
+  padding-top: 20px;
+  padding-bottom: 7px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-bottom: 20px;
+  background-color: #c9efc7;
+}
+
+#profit-loss-text {
+  font-size: 25px;
+  vertical-align: middle;
+}
