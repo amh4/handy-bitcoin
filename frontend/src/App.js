@@ -13,10 +13,21 @@ function App() {
   const [startingPrice, setStartingPrice] = useState(null);
   const [currentProfitLoss, setCurrentProfitLoss] = useState(null);
   const tradeActiveRef = useRef(false);
+  let counter = 0;
+
+  const startAnimation = () => {
+    if (currentProfitLoss < 0) {
+      return false;
+    } else {
+      return true;
+    }
+  };
 
   useEffect(() => {
     if (tradeActiveRef.current && startingPrice === null) {
       setStartingPrice(currentPrice);
+      counter += 1;
+      console.log("counter ", counter);
     } else if (tradeActiveRef.current === false && startingPrice != null) {
       setStartingPrice(null);
     }
@@ -39,6 +50,12 @@ function App() {
         profitLoss={currentProfitLoss}
         tradeActive={tradeActiveRef.current}
       />
+      {!tradeActiveRef.current && counter > 0 && startAnimation() && (
+        <ProfitAnimation />
+      )}
+      {!tradeActiveRef.current && counter > 0 && !startAnimation() && (
+        <LossAnimation />
+      )}
     </div>
   );
 }
