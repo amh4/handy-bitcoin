@@ -1,0 +1,11 @@
+#total-profit-loss-headline {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 1vh;
+  margin-top: 20px;
+}
+
+#total-profit-loss-label {
+  font-size: 30px;
+}

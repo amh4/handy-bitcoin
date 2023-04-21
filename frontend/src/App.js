@@ -5,6 +5,8 @@ import UserTutorial from "./components/userTutorial/userTutorial";
 import BitcoinLivePrice from "./components/bitcoinLivePrice/bitcoinLivePrice";
 import ProfitAndLoss from "./components/profitAndLoss/profitAndLoss";
 import TotalProfitLoss from "./components/totalProfitLoss/totalProfitLoss";
+import ProfitAnimation from "./components/profitAnimation/profitAnimation";
+import LossAnimation from "./components/lossAnimation/lossAnimation";
 
 function App() {
   const [currentPrice, setCurrentPrice] = useState();
