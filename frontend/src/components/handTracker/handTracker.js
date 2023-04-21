@@ -24,11 +24,9 @@ const HandTracker = (props) => {
     handTrack.load(modelParams).then((lmodel) => {
       setModel(lmodel);
       handTrack.startVideo(videoRef.current).then(function (status) {
-        console.log("video started", status);
         if (status) {
           const runDetection = () => {
             lmodel.detect(videoRef.current).then((predictions) => {
-              console.log("Predictions: ", predictions);
               if (predictions.length > 1) {
                 if (
                   predictions[1].label === "open" &&
@@ -37,7 +35,6 @@ const HandTracker = (props) => {
                   tradeActive.current = true;
                   props.onTradeActive &&
                     props.onTradeActive(tradeActive.current);
-                  console.log("trade open " + tradeActive.current);
                 } else if (
                   predictions[1].label === "closed" &&
                   tradeActive.current === true
@@ -45,7 +42,6 @@ const HandTracker = (props) => {
                   tradeActive.current = false;
                   props.onTradeActive &&
                     props.onTradeActive(tradeActive.current);
-                  console.log("trade closed " + tradeActive.current);
                 }
               }
 

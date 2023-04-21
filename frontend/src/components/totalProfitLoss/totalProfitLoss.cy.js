@@ -18,14 +18,14 @@ describe("TotalProfitLoss", () => {
     );
   });
 
-  // it("totals up subsquent profit/losses", () => {
-  //   cy.mount(<TotalProfitLoss profitLoss={-2000} />);
-  //   cy.get("#total-profit-loss-headline").contains(
-  //     "Total Profit/Loss: $-2,000"
-  //   );
-  //   cy.mount(<TotalProfitLoss profitLoss={-1000} />);
-  //   cy.get("#total-profit-loss-headline").contains(
-  //     "Total Profit/Loss: $-3,000"
-  //   );
-  // });
+  it("totals up subsquent profit/losses", () => {
+    cy.mount(<TotalProfitLoss profitLoss={-2000} />);
+    cy.get("#total-profit-loss-headline").contains(
+      "Total Profit/Loss: $-2,000"
+    );
+    cy.mount(<TotalProfitLoss profitLoss={-1000} />);
+    cy.get("#total-profit-loss-headline").contains(
+      "Total Profit/Loss: $-3,000"
+    );
+  });
 });

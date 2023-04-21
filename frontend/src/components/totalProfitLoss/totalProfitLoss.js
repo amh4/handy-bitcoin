@@ -1,22 +1,22 @@
 import React, { useEffect, useState } from "react";
 
-const TotalProfitLoss = ({ profitLoss }) => {
+const TotalProfitLoss = ({ profitLoss, tradeActive }) => {
   const [runningProfitLoss, setRunningProfitLoss] = useState(0);
   const [totalProfitLoss, setTotalProfitLoss] = useState(0);
+
+  console.log(profitLoss);
+  console.log(tradeActive);
 
   useEffect(() => {
     if (profitLoss != null) {
       setRunningProfitLoss(profitLoss);
-    } else if (profitLoss === 0) {
-      setRunningProfitLoss(0);
-    } else if (profitLoss < 0) {
-      setRunningProfitLoss(runningProfitLoss - profitLoss);
-    } else if (profitLoss > 0) {
-      setRunningProfitLoss(runningProfitLoss + profitLoss);
     }
+  }, [profitLoss]);
 
+  useEffect(() => {
     setTotalProfitLoss(totalProfitLoss + runningProfitLoss);
-  }, [profitLoss, runningProfitLoss]);
+    console.log("trade active changed to: ", tradeActive);
+  }, [tradeActive]);
 
   return (
     <div id="total-profit-loss-headline">

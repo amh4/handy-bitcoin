@@ -20,9 +20,6 @@ function App() {
     }
   }, [tradeActiveRef.current]);
 
-  console.log("App trade active: ", tradeActiveRef.current);
-  console.log("Current Price in App: ", currentPrice);
-
   return (
     <div className="App">
       <UserTutorial />
@@ -36,7 +33,10 @@ function App() {
         currentPrice={currentPrice}
         onProfitLoss={(value) => setCurrentProfitLoss(value)}
       />
-      <TotalProfitLoss profitLoss={currentProfitLoss} />
+      <TotalProfitLoss
+        profitLoss={currentProfitLoss}
+        tradeActive={tradeActiveRef.current}
+      />
     </div>
   );
 }

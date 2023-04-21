@@ -11,7 +11,7 @@ function ProfitAndLoss({ startingPrice, currentPrice, onProfitLoss }) {
       setProfitLoss(0);
     }
     {
-      onProfitLoss(profitLoss * 10000);
+      onProfitLoss(profitLoss);
     }
   }, [startingPrice, currentPrice]);
 
