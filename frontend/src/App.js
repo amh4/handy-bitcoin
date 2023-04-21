@@ -24,7 +24,7 @@ function App() {
   return (
     <div className="App">
       <UserTutorial />
-      <img src={LogoNoBackGround} />
+      <img id="logo" src={LogoNoBackGround} />
       <BitcoinLivePrice onPriceUpdate={setCurrentPrice} />
       <ProfitAndLoss
         startingPrice={startingPrice}
@@ -36,6 +36,7 @@ function App() {
         tradeActive={tradeActiveRef.current}
       />
       <HandTracker
+        id="hand-tracker"
         onTradeActive={(value) => (tradeActiveRef.current = value)}
       />
     </div>
