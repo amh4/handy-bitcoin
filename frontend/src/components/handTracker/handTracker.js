@@ -7,14 +7,14 @@ const modelParams = {
   imageScaleFactor: 1,
   maxNumBoxes: 20,
   iouThreshold: 0.2,
-  scoreThreshold: 0.6,
+  scoreThreshold: 0.8,
   modelType: "ssd320fpnlite",
   modelSize: "small",
   bboxLineWidth: "2",
   fontSize: 17,
 };
 
-function HandTracker(props) {
+const HandTracker = (props) => {
   const [model, setModel] = useState(null);
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
@@ -24,11 +24,9 @@ function HandTracker(props) {
     handTrack.load(modelParams).then((lmodel) => {
       setModel(lmodel);
       handTrack.startVideo(videoRef.current).then(function (status) {
-        console.log("video started", status);
         if (status) {
           const runDetection = () => {
             lmodel.detect(videoRef.current).then((predictions) => {
-              console.log("Predictions: ", predictions);
               if (predictions.length > 1) {
                 if (
                   predictions[1].label === "open" &&
@@ -37,7 +35,6 @@ function HandTracker(props) {
                   tradeActive.current = true;
                   props.onTradeActive &&
                     props.onTradeActive(tradeActive.current);
-                  console.log("trade open " + tradeActive.current);
                 } else if (
                   predictions[1].label === "closed" &&
                   tradeActive.current === true
@@ -45,7 +42,6 @@ function HandTracker(props) {
                   tradeActive.current = false;
                   props.onTradeActive &&
                     props.onTradeActive(tradeActive.current);
-                  console.log("trade closed " + tradeActive.current);
                 }
               }
 
@@ -79,6 +75,6 @@ function HandTracker(props) {
       <canvas ref={canvasRef} width="500" height="400" />
     </div>
   );
-}
+};
 
 export default HandTracker;
