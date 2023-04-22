@@ -18,7 +18,7 @@ const TotalProfitLoss = ({ profitLoss, tradeActive }) => {
   return (
     <div id="total-profit-loss-headline">
       <p id="profit-loss-text">
-        Total Profit/Loss: ${totalProfitLoss?.toLocaleString()}
+        Total Profit/Loss: ${totalProfitLoss?.toLocaleString() * 1000}
       </p>
     </div>
   );
