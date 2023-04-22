@@ -1,17 +1,36 @@
 #profit-loss-container {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  margin-top: 5px;
-  font-size: 25px;
-  border: 3px solid #ffbe79;
-  border-radius: 10px;
-  padding-top: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
 
-  padding-left: 15px;
-  padding-right: 15px;
-  margin-bottom: 5px;
+#profit-loss-label {
+  border-radius: 10px;
+  font-size: 25px;
   background-color: #374151;
   color: white;
-  width: 40%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+#profit-loss-amount {
+  justify-content: left;
+  align-content: left;
+  border-radius: 10px;
+  font-size: 25px;
+  background-color: #374151;
+  color: white;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-left: 15px;
+  padding-right: 50px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
