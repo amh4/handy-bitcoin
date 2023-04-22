@@ -1,5 +1,13 @@
 #bitcoin-price-container {
   display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#live-price-label,
+#live-price-amount {
+  display: flex;
   justify-content: center;
   align-items: center;
   height: 50px;
@@ -12,18 +20,12 @@
   padding-right: 15px;
   margin-bottom: 5px;
   background-color: #374151;
-  width: 40%;
+  color: white;
+  font-size: 30px;
 }
 
 #bitcoin-logo {
   height: 30px;
   margin-right: 0.5em;
   vertical-align: middle;
-}
-
-#current-price {
-  font-size: 30px;
-  display: inline-block;
-  margin: 0;
-  color: white;
 }
