@@ -18,7 +18,7 @@ const UserTutorial = () => {
       id="tutorial-modal"
     >
       <Modal.Header closeButton>
-        <Modal.Title>Welcome to Handy Bitcoin!</Modal.Title>
+        <Modal.Title>Welcome to Trade Vision</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <Carousel id="user-tutorial" variant="dark">

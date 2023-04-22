@@ -1,7 +1,21 @@
 #profit-loss-container {
   display: flex;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
-  margin-top: 20px;
-  font-size: 30px;
+  margin-top: 10px;
+}
+
+#profit-loss-label,
+#profit-loss-amount {
+  border-radius: 10px;
+  font-size: 25px;
+  background-color: #374151;
+  color: white;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }

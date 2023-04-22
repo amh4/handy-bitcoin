@@ -5,6 +5,7 @@ import UserTutorial from "./components/userTutorial/userTutorial";
 import BitcoinLivePrice from "./components/bitcoinLivePrice/bitcoinLivePrice";
 import ProfitAndLoss from "./components/profitAndLoss/profitAndLoss";
 import TotalProfitLoss from "./components/totalProfitLoss/totalProfitLoss";
+import LogoNoBackGround from "./components/images/logo-no-background.png";
 
 function App() {
   const [currentPrice, setCurrentPrice] = useState();
@@ -23,10 +24,7 @@ function App() {
   return (
     <div className="App">
       <UserTutorial />
-      <HandTracker
-        onTradeActive={(value) => (tradeActiveRef.current = value)}
-      />
-
+      <img id="logo" src={LogoNoBackGround} />
       <BitcoinLivePrice onPriceUpdate={setCurrentPrice} />
       <ProfitAndLoss
         startingPrice={startingPrice}
@@ -36,6 +34,10 @@ function App() {
       <TotalProfitLoss
         profitLoss={currentProfitLoss}
         tradeActive={tradeActiveRef.current}
+      />
+      <HandTracker
+        id="hand-tracker"
+        onTradeActive={(value) => (tradeActiveRef.current = value)}
       />
     </div>
   );

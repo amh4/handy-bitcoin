@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import "./totalProfitLoss.css";
 
 const TotalProfitLoss = ({ profitLoss, tradeActive }) => {
   const [runningProfitLoss, setRunningProfitLoss] = useState(0);
@@ -15,8 +16,11 @@ const TotalProfitLoss = ({ profitLoss, tradeActive }) => {
   }, [tradeActive]);
 
   return (
-    <div id="total-profit-loss-headline">
-      <p>Total Profit/Loss: ${totalProfitLoss?.toLocaleString()}</p>
+    <div id="total-profit-loss-container">
+      <p id="total-profit-loss-text">Total Profit/Loss:</p>
+      <p id="total-profit-loss-amount">
+        ${totalProfitLoss?.toLocaleString() * 1000}
+      </p>
     </div>
   );
 };
