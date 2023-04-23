@@ -6,6 +6,7 @@ import BitcoinLivePrice from "./components/bitcoinLivePrice/bitcoinLivePrice";
 import ProfitAndLoss from "./components/profitAndLoss/profitAndLoss";
 import TotalProfitLoss from "./components/totalProfitLoss/totalProfitLoss";
 import LogoNoBackGround from "./components/images/logo-no-background.png";
+import Menu from "./components/menu/menu";
 
 function App() {
   const [currentPrice, setCurrentPrice] = useState();
@@ -24,6 +25,7 @@ function App() {
   return (
     <div className="App">
       <UserTutorial />
+      <Menu />
       <img id="logo" src={LogoNoBackGround} />
       <BitcoinLivePrice onPriceUpdate={setCurrentPrice} />
       <ProfitAndLoss

@@ -1,19 +1,23 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import UserTutorial from "../userTutorial/userTutorial";
+import "./menu.css";
 
 function Menu() {
   const [show, setShow] = useState(false);
   const [tutorialShow, setTutorialShow] = useState(false);
 
-  const handleClose = () => setShow(false);
+  const handleClose = () => {
+    setShow(false);
+    setTutorialShow(false);
+  };
   const handleShow = () => setShow(true);
   const handleTutorialShow = () => setTutorialShow(true);
 
   return (
     <div id="menu-container">
-      <Button variant="primary" onClick={handleShow}>
+      <Button id="menu-button" variant="primary" onClick={handleShow}>
         Menu
       </Button>
 
