@@ -6,12 +6,12 @@ function ProfitAndLoss({ startingPrice, currentPrice, onProfitLoss }) {
 
   useEffect(() => {
     if (startingPrice != null) {
+      console.log("step 1 profit/loss calc: ", currentPrice - startingPrice);
       setProfitLoss(currentPrice - startingPrice);
+      console.log("step 2 Profit passed up: ", profitLoss);
+      onProfitLoss(profitLoss);
     } else {
       setProfitLoss(0);
-    }
-    {
-      onProfitLoss(profitLoss);
     }
   }, [startingPrice, currentPrice]);
 
