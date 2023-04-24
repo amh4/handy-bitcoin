@@ -7,11 +7,12 @@ import ProfitAndLoss from "./components/profitAndLoss/profitAndLoss";
 import TotalProfitLoss from "./components/totalProfitLoss/totalProfitLoss";
 import ProfitAnimation from "./components/profitAnimation/profitAnimation";
 import LossAnimation from "./components/lossAnimation/lossAnimation";
+import LogoNoBackGround from "./components/images/logo-no-background.png";
+import Menu from "./components/menu/menu";
 
 function App() {
   const [currentPrice, setCurrentPrice] = useState();
   const [startingPrice, setStartingPrice] = useState(null);
-  const [currentProfitLoss, setCurrentProfitLoss] = useState(null);
   const tradeActiveRef = useRef(false);
   let counter = 0;
 
@@ -36,18 +37,14 @@ function App() {
   return (
     <div className="App">
       <UserTutorial />
-      <HandTracker
-        onTradeActive={(value) => (tradeActiveRef.current = value)}
-      />
-
+      <div id="menu-container">
+        <Menu />
+      </div>
+      <img id="logo" src={LogoNoBackGround} />
       <BitcoinLivePrice onPriceUpdate={setCurrentPrice} />
       <ProfitAndLoss
         startingPrice={startingPrice}
         currentPrice={currentPrice}
-        onProfitLoss={(value) => setCurrentProfitLoss(value)}
-      />
-      <TotalProfitLoss
-        profitLoss={currentProfitLoss}
         tradeActive={tradeActiveRef.current}
       />
       {!tradeActiveRef.current && counter > 0 && startAnimation() && (
@@ -56,6 +53,10 @@ function App() {
       {!tradeActiveRef.current && counter > 0 && !startAnimation() && (
         <LossAnimation />
       )}
+      <HandTracker
+        id="hand-tracker"
+        onTradeActive={(value) => (tradeActiveRef.current = value)}
+      />
     </div>
   );
 }

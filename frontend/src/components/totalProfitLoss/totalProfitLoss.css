@@ -1,11 +1,20 @@
-#total-profit-loss-headline {
+#total-profit-loss-container {
   display: flex;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
-  height: 1vh;
-  margin-top: 20px;
 }
 
-#total-profit-loss-label {
+#total-profit-loss-text,
+#total-profit-loss-amount {
+  border: 3px solid #ffbe79;
+  border-radius: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 25px;
+  background-color: #374151;
+  color: white;
   font-size: 30px;
 }

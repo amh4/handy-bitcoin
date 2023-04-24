@@ -7,18 +7,21 @@ const TotalProfitLoss = ({ profitLoss, tradeActive }) => {
 
   useEffect(() => {
     if (profitLoss != null) {
+      console.log("step 2 running p/l: ", profitLoss);
       setRunningProfitLoss(profitLoss);
     }
   }, [profitLoss]);
 
   useEffect(() => {
+    console.log("step 3 setting total ", totalProfitLoss + runningProfitLoss);
     setTotalProfitLoss(totalProfitLoss + runningProfitLoss);
   }, [tradeActive]);
 
   return (
-    <div id="total-profit-loss-headline">
-      <p id="total-profit-loss-label">
-        Total Profit/Loss: ${totalProfitLoss?.toLocaleString()}
+    <div id="total-profit-loss-container">
+      <p id="total-profit-loss-text">Total Profit/Loss:</p>
+      <p id="total-profit-loss-amount">
+        ${totalProfitLoss?.toLocaleString() * 1000}
       </p>
     </div>
   );

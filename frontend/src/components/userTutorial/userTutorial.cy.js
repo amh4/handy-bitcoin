@@ -45,6 +45,6 @@ describe("UserTutorial", () => {
     cy.mount(<UserTutorial />);
     cy.get(".modal-header").should("exist");
     cy.get(".btn-close").should("exist");
-    cy.get(".modal-title").should("have.text", "Welcome to Handy Bitcoin!");
+    cy.get(".modal-title").should("have.text", "Welcome to Trade Vision");
   });
 });
