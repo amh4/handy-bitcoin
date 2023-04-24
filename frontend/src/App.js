@@ -23,7 +23,9 @@ function App() {
   return (
     <div className="App">
       <UserTutorial />
-      <Menu />
+      <div id="menu-container">
+        <Menu />
+      </div>
       <img id="logo" src={LogoNoBackGround} />
       <BitcoinLivePrice onPriceUpdate={setCurrentPrice} />
       <ProfitAndLoss
