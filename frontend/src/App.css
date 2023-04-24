@@ -5,10 +5,18 @@
   justify-content: center;
   text-align: center;
   background-color: #ffbe79;
+  min-height: 100vh;
 }
 
 #logo {
   margin-top: 20px;
   height: 40%;
   width: 40%;
+}
+
+#menu-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 10px;
 }
