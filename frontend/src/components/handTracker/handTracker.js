@@ -33,6 +33,7 @@ const HandTracker = (props) => {
                   tradeActive.current === false
                 ) {
                   tradeActive.current = true;
+                  console.log("trade open");
                   props.onTradeActive &&
                     props.onTradeActive(tradeActive.current);
                 } else if (
@@ -40,6 +41,7 @@ const HandTracker = (props) => {
                   tradeActive.current === true
                 ) {
                   tradeActive.current = false;
+                  console.log("trade closed");
                   props.onTradeActive &&
                     props.onTradeActive(tradeActive.current);
                 }

@@ -7,13 +7,13 @@ const TotalProfitLoss = ({ profitLoss, tradeActive }) => {
 
   useEffect(() => {
     if (profitLoss != null) {
-      console.log("step 3 running p/l: ", profitLoss);
+      console.log("step 2 running p/l: ", profitLoss);
       setRunningProfitLoss(profitLoss);
     }
   }, [profitLoss]);
 
   useEffect(() => {
-    console.log("step 4 setting total ", totalProfitLoss + runningProfitLoss);
+    console.log("step 3 setting total ", totalProfitLoss + runningProfitLoss);
     setTotalProfitLoss(totalProfitLoss + runningProfitLoss);
   }, [tradeActive]);
 
