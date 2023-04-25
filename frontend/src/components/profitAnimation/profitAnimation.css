@@ -1,4 +1,21 @@
 #confetti-img {
-  height: 200px;
-  width: 200px;
+  height: 80%;
+  width: 80%;
+  object-fit: contain;
+  align-items: center;
+  justify-content: center;
+}
+
+#profit-animation {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  width: 300px;
+}
+
+#profit-animation-modal {
+  max-height: 100px;
+  height: 100px;
 }

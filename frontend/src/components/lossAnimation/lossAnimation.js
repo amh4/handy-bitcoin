@@ -1,12 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import MoneyBag from "../images/losingTrade.png";
 import "./lossAnimation.css";
+import { Modal } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const LossAnimation = () => {
+  const [show, setShow] = useState(true);
   return (
-    <div id="loss-animation">
-      <img id="money-bag-img" src={MoneyBag} />
-    </div>
+    <Modal
+      show={show}
+      backdrop="static"
+      keyboard={false}
+      id="loss-animation-modal"
+    >
+      <Modal.Body>
+        <div id="loss-animation">
+          <img id="money-bag-img" src={MoneyBag} />
+        </div>
+      </Modal.Body>
+    </Modal>
   );
 };
 

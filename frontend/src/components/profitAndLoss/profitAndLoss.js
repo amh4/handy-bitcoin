@@ -22,10 +22,13 @@ function ProfitAndLoss({ startingPrice, currentPrice, tradeActive }) {
     if (!tradeActive && profitLoss > 0) {
       console.log("profit animation");
       setProfitAnimation(true);
+
       console.log("profit animation", profitAnimation);
+
       setTimeout(() => {
         setProfitAnimation(false);
       }, 3000);
+
       console.log("post set timeout", profitAnimation);
     } else if (!tradeActive && profitLoss < 0) {
       console.log("loss animation");
