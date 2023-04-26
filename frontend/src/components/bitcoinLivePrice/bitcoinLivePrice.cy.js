@@ -12,6 +12,6 @@ describe("BitcoinLivePrice", () => {
 
   it("displays the current price from the api", () => {
     cy.mount(<BitcoinLivePrice />);
-    cy.get("#current-price").contains("Live Price: ");
+    cy.get("#live-price-label").contains("Live Price:");
   });
 });

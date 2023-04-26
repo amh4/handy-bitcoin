@@ -22,11 +22,11 @@ const BitcoinLivePrice = (props) => {
     <div id="bitcoin-price-container">
       <p id="live-price-label">
         <img id="bitcoin-logo" src={BitcoinLogo} />
-        Live Price: $
+        Live Price:
       </p>
 
       <p id="live-price-amount">
-        {currentPrice && currentPrice.toLocaleString()}
+        ${currentPrice && currentPrice.toLocaleString()}
       </p>
       {props.onPriceUpdate && props.onPriceUpdate(currentPrice)}
     </div>
