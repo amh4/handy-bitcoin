@@ -13,6 +13,9 @@ const LossAnimation = () => {
       keyboard={false}
       id="loss-animation-modal"
     >
+      <Modal.Header>
+        <Modal.Title>Losing Trade</Modal.Title>
+      </Modal.Header>
       <Modal.Body>
         <div id="loss-animation">
           <img id="money-bag-img" src={MoneyBag} />
