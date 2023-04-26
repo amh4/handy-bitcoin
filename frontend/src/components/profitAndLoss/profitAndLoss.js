@@ -44,8 +44,8 @@ function ProfitAndLoss({ startingPrice, currentPrice, tradeActive }) {
   return (
     <div id="profit-loss-container">
       <div id="running-profit-loss">
-        <p id="profit-loss-label">Profit/Loss: </p>
-        <p id="profit-loss-amount">${profitLoss?.toLocaleString() * 1000}</p>
+        <p id="profit-loss-label">Profit/Loss:</p>
+        <p id="profit-loss-amount">${profitLoss * 1000}</p>
       </div>
       <div id="total-profit-loss-container">
         <TotalProfitLoss profitLoss={profitLoss} tradeActive={tradeActive} />
