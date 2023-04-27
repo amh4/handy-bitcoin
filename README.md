@@ -4,17 +4,6 @@ An app built using Agile methodologies that allows users to buy and sell bitcoin
 
 (Note: This has not been built for mobile due to the restrictions of the object detection model)
 
-### Update
-
-Currently working on fixing a bug that results in the Total Profit/Loss figure being delayed when updating.
-
-### Next Steps
-
-1. Trade confirmation animations.
-2. Integrate backend database to store users records.
-3. Create user registration/log in functionality.
-4. Trade other asset classes.
-
 # Contents
 
 - [Technologies](#technologies)
@@ -26,6 +15,7 @@ Currently working on fixing a bug that results in the Total Profit/Loss figure b
 - [Frontend Testing](#frontend-testing)
 - [Backend Testing](#backend-testing)
 - [Running The Application](#running-the-application)
+- [Next Steps](#next-steps)
 
 # Technologies
 
@@ -39,7 +29,7 @@ Currently working on fixing a bug that results in the Total Profit/Loss figure b
 
 # Demo
 
-![](./readme_images/walkthrough.gif)
+![](./readme_images/mvp_walkthrough.gif)
 
 # Planning
 
@@ -111,3 +101,14 @@ The backend was Test Driven using Jest. As it made an external API call this was
 4. In one terminal navigate to the api directory. In the other navigate to frontend.
 5. In api run the command `node app.js` and you should see a message that says 'server is running'.
 6. In frontend run `npm start` and this will open the app in your browser.
+
+# Next Steps
+
+1. Trade confirmation animations.
+2. Integrate backend database to store users records.
+3. Create user registration/log in functionality.
+4. Trade other asset classes.
+
+# Credits
+
+The pre-trained model used in this project was created by Victor Dibia and his work can be found here https://github.com/victordibia/handtracking
