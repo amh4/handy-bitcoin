@@ -4,7 +4,7 @@ import ProfitAnimation from "../profitAnimation/profitAnimation";
 import LossAnimation from "../lossAnimation/lossAnimation";
 import "./profitAndLoss.css";
 
-function ProfitAndLoss({ startingPrice, currentPrice, tradeActive }) {
+const ProfitAndLoss = ({ startingPrice, currentPrice, tradeActive }) => {
   const [profitLoss, setProfitLoss] = useState(null);
   const [profitAnimation, setProfitAnimation] = useState(false);
   const [lossAnimation, setLossAnimation] = useState(false);
@@ -54,6 +54,6 @@ function ProfitAndLoss({ startingPrice, currentPrice, tradeActive }) {
       {lossAnimation && <LossAnimation />}
     </div>
   );
-}
+};
 
 export default ProfitAndLoss;
